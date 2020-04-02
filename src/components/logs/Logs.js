@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import LogItem from './LogItem';
-import Preloader from '../layout/Preloader'
+import Preloader from '../layout/Preloader';
 import PropTypes from 'prop-types';
-import {getLogs} from '../../actions/logActions'
+import { getLogs } from '../../actions/logActions';
 
 //Props actions are passed as props as well
-const Logs = ({log: {logs, loading}, getLogs}) => {
 
-
+//			getting all the state    functions are passed as prop as well
+const Logs = ({ log: { logs, loading }, getLogs }) => {
 	useEffect(() => {
 		getLogs();
 		// eslint-disable-next-line
 	}, []);
-
-
 
 	if (loading || logs === null) {
 		return <Preloader />;
@@ -38,12 +36,13 @@ const Logs = ({log: {logs, loading}, getLogs}) => {
 
 Logs.propTypes = {
 	log: PropTypes.object.isRequired,
-}
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	//prop: state.rootReducer name
-	log: state.log
+	log: state.log,
+	getLogs: PropTypes.func.isRequired,
 });
 
 //connect(mapStateToProps, {actions})(componentName);
-export default connect(mapStateToProps, {getLogs})(Logs);
+export default connect(mapStateToProps, { getLogs })(Logs);

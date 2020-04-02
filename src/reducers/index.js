@@ -1,6 +1,9 @@
-import {combineReducers} from 'redux';
-import logReducer from './logReducer'
+import { combineReducers } from 'redux';
+import logReducer from './logReducer';
+
+//combining all the reducers
 
 export default combineReducers({
-    log: logReducer
-})
+	//name acessible : reducer
+	log: logReducer,
+});
