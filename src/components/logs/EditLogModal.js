@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateLog, clearCurrent } from '../../actions/logActions';
 import { useEffect } from 'react';
+import TechSelectOptions from '../techs/TechSelectOptions';
 
 const EditLogModal = ({ current, updateLog, clearCurrent }) => {
 	const [
@@ -76,9 +77,7 @@ const EditLogModal = ({ current, updateLog, clearCurrent }) => {
 							onChange={(e) => setTech(e.target.value)}
 						>
 							<option value='disabled'>Select Technician</option>
-							<option value='John Doe'>John Doe</option>
-							<option value='Sam Smith'>Sam Smith</option>
-							<option value='Sara Wilson'>Sara Wilson</option>
+							<TechSelectOptions />
 						</select>
 					</div>
 				</div>
